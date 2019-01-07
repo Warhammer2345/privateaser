@@ -4,7 +4,6 @@ function methode()
 {
   for (var i = events.length - 1; i >= 0; i--) {
     events[i].price=prices(events[i].barId,events[i].persons,events[i].time)
-    console.log(events[i].price)
     if(events[i].persons>=60)
     {
       events[i].price=events[i].price-events[i].price*0.5
@@ -17,8 +16,13 @@ function methode()
     {
       events[i].price=events[i].price-events[i].price*0.1
     }
-    
-    console.log(events[i].price)
+    var commission=events[i].price*0.3
+    events[i].commission.insurance=commission/2
+    commission-=events[i].commission.insurance
+    events[i].commission.treasury=events[i].persons
+    commission-=events[i].commission.treasury
+    events[i].commission.privateaser=commission
+    console.log(events[i].commission.insurance + " "+events[i].commission.treasury +" "+ events[i].commission.privateaser)
   }
 }
 function prices(idBar, personne, temps)
