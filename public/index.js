@@ -27,7 +27,16 @@ function methode()
       events[i].price+=events[i].persons
       events[i].commission.privateaser+=events[i].persons
     }
+    payerChaquePersonne(events[i],i)
   }
+}
+function payerChaquePersonne(evenementAGerer,position)
+{
+  actors[position].payment[0].amount=-evenementAGerer.price
+  actors[position].payment[1].amount=evenementAGerer.price-(evenementAGerer.commission.insurance+evenementAGerer.commission.treasury+evenementAGerer.commission.privateaser)
+  actors[position].payment[2].amount=evenementAGerer.commission.insurance
+  actors[position].payment[3].amount=evenementAGerer.commission.treasury
+  actors[position].payment[4].amount=evenementAGerer.commission.privateaser
 }
 function prices(idBar, personne, temps)
 {
