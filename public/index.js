@@ -22,7 +22,11 @@ function methode()
     events[i].commission.treasury=events[i].persons
     commission-=events[i].commission.treasury
     events[i].commission.privateaser=commission
-    console.log(events[i].commission.insurance + " "+events[i].commission.treasury +" "+ events[i].commission.privateaser)
+    if(events[i].options.deductibleReduction)
+    {
+      events[i].price+=events[i].persons
+      events[i].commission.privateaser+=events[i].persons
+    }
   }
 }
 function prices(idBar, personne, temps)
