@@ -1,5 +1,26 @@
 'use strict';
 
+function methode()
+{
+  for (var i = events.length - 1; i >= 0; i--) {
+    events[i].price=prices(events[i].barId,events[i].persons,events[i].time)
+    
+  }
+}
+function prices(idBar, personne, temps)
+{
+  for (var i = bars.length - 1; i >= 0; i--) {
+    var estLeBar=estLeBonBar(bars[i],idBar)
+    if(estLeBar)
+    var barAPayer=bars[i]
+  }
+  
+  var paiement = temps*barAPayer.pricePerHour+personne*barAPayer.pricePerPerson
+  return(paiement)
+}
+function estLeBonBar(bar,idBar) {
+  return bar.id === idBar;
+}
 //list of bats
 //useful for ALL 5 steps
 //could be an array of objects that you fetched from api or database
@@ -60,7 +81,7 @@ const events = [{
   'id': '94dab739-bd93-44c0-9be1-52dd07baa9f6',
   'booker': 'otacos',
   'barId': '6e06c9c0-4ab0-4d66-8325-c5fa60187cf8',
-  'distance': 5,
+  'time': 5,
   'persons': 80,
   'options': {
     'deductibleReduction': true
@@ -146,6 +167,7 @@ const actors = [{
   }]
 }];
 
+methode();
 console.log(bars);
 console.log(events);
 console.log(actors);
