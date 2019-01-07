@@ -4,7 +4,21 @@ function methode()
 {
   for (var i = events.length - 1; i >= 0; i--) {
     events[i].price=prices(events[i].barId,events[i].persons,events[i].time)
+    console.log(events[i].price)
+    if(events[i].persons>=60)
+    {
+      events[i].price=events[i].price-events[i].price*0.5
+    }
+    else if(events[i].persons>=20)
+    {
+      events[i].price=events[i].price-events[i].price*0.3
+    }
+    else if(events[i].persons>=10)
+    {
+      events[i].price=events[i].price-events[i].price*0.1
+    }
     
+    console.log(events[i].price)
   }
 }
 function prices(idBar, personne, temps)
